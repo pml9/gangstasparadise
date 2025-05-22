@@ -1,0 +1,6 @@
+Use ONLY files from /docs_new folder
+Apply instructions from the prompts/documentation.md file
+Take app-overview from input/app-overview.txt,
+Take current-tech-choices from input/current-tech-choices.txt,
+Take technical-specification from output/technical-specification.md.
+Use ONLY files mentioned above.

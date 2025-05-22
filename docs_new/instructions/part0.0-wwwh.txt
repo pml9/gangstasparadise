@@ -1,6 +1,5 @@
 Use ONLY files from /docs_new folder
-Apply instructions from the prompts/part1-architect.md file, by creating output/overall-structure.md file 
+Apply instructions from the prompts/part0.0-wwwh.md file
 with a basic structure and then add content in sections step by step. 
 Take app-overview from input/app-overview.txt, 
-take what-who-why-how from input/what-who-why-how.txt
 Use ONLY files mentioned above.

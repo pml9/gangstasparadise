@@ -1,5 +1,5 @@
 Use ONLY files from /docs_new folder
-Apply instructions from the prompts/part3-technical-specification.md file, by creating output/technical-specification.md file 
+Apply instructions from the prompts/part2.1-design-system.md file, by creating output/design-system.md file 
 with a basic structure and then add content in sections step by step. 
 Take features from output/features-list.md 
 Use ONLY files mentioned above.
