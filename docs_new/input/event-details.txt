@@ -1,0 +1,70 @@
+# The Vibe Coding Rush - where AI meets every part of the product lifecycle.
+
+## General rules, expectations and details about the scoring:
+ 
+### General
+Source code is available on the shared GitRepo
+Application is publicly accessible
+Minimal functional requirements are met
+Presentation/demo is prepared
+We are going to score following categories
+Functionality
+Feature Coverage
+UX/UI Quality
+Documentation
+Test Coverage
+Project Board Usage
+General Vibe - how innovative your approach was
+ 
+
+### Feature Implementation & Strategy
+All teams will receive the same set of high-level features.
+Teams must ideate, design, and interpret how to implement these features.
+Creativity, planning, and team strategy are key parts of the challenge.
+### Scoring System
+A live AI-powered scoring system will evaluate:
+Functionality
+Feature coverage
+UI/UX quality
+Documentation (README)
+Test coverage
+Project board usage
+Overall “vibe”/approach
+Weights (ponderation) for each category will be published before the event (on Thursday).
+Teams will see their live scores and can improve during the day (e.g., update README, add tests).
+The scoreboard will be public, increasing competitiveness.
+### Rules & Technical Guidelines
+No login screens – to allow automated scoring; use role selectors if needed.
+All submissions must be:
+Deployed or accessible via a public URL
+Code committed to Git repo
+README must describe the features implemented
+Presentation and video will not impact core scoring, but serve to showcase work and boost the “vibe” score.
+Board usage is encouraged but not mandatory; it contributes to the score.
+### Judging & Fairness
+The AI scoring engine will cross-check documentation vs. actual functionality to avoid score inflation.
+A human jury will do sanity checks and validate unclear or subjective areas (like UI/UX).
+Feedback and appeal for obvious scoring discrepancies will be possible.
+### Closing Notes
+The hackathon simulates real-world early-stage product ideation, where vague requirements must be shaped into working solutions.
+The event emphasizes collaboration, fast delivery, and innovation, not just coding.
+While the AI will drive most scoring, human oversight ensures fairness.
+ 
+Appendix
+Plan your strategy carefully: each team will receive only a high-level feature—ideation and planning are an essential part of the process.
+Live scoring: scoring app will be used, with score updates shared a few times throughout the day.
+Showcase your work effectively: each team must prepare a presentation and a short demo video to highlight what was built and the approach taken.
+Documentation must be included: documentation must be included in the README file to be considered during evaluation.
+Keep it simple: do not include a login screen in your solution, as the application needs to be scored automatically
+Task board: The use of a task board will also be part of the scoring.
+
+## Agenda
+12:30–13:00 – Opening Ceremony
+12:30–12:35 – DCDs welcome local teams
+12:35–12:40 – Live-streamed centralized welcome from CEO
+12:40–12:55 – Agenda overview and challenge announcement
+13:00–19:30 – Project work (with lunch break)
+19:30–20:00 – Final Touches & Presentation Prep
+20:00–21:15 – Teams’ presentations (elevator pitches)
+21:30–22:00 – Announcing the winners of Hack# 2025
+

@@ -1,0 +1,7 @@
+Use ONLY files from /docs_new folder
+pply instructions from the prompts/part2-features.md file, by creating output/features-list.md file 
+with a basic structure and then add content in sections step by step. 
+Take event-details from input/event-details.txt.
+Take overall-structure from output/overall-structure.md
+Take practicalities from input/practicalities.txt. 
+Use ONLY files mentioned above.

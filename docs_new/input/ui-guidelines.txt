@@ -1,0 +1,6 @@
+Create a clean, intuitive user interface with minimalist aesthetics that prioritizes user experience. 
+Use modern typography, strategic white space, and a limited color palette (5-7 colors) to reduce visual clutter. 
+Implement responsive design that works seamlessly across all devices. 
+Consider micro-interactions that provide subtle feedback and enhance engagement without overwhelming users. Design for accessibility with proper contrast ratios and intuitive navigation. 
+Incorporate subtle motion design that guides users' attention. 
+If appropriate, explore light glassmorphism effects for depth while maintaining the clean aesthetic. Focus on solving real user problems through intuitive interactions rather than decorative elements

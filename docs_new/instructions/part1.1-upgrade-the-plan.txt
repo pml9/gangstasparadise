@@ -1,0 +1,24 @@
+Use ONLY files from /docs_new folder
+Update the plan in output/overall-structure.md comprehensively according to the feedback: 
+* Create a System diagram
+
+Answers to Questions & Clarifications:
+* None, its hackathon
+* No
+* None, its hackathon
+* None, its hackathon
+* None, its hackathon
+
+
+Answers to Architecture Consideration Questions
+* Suggest, but keep in mind its hackathon
+* None, its hackathon
+* None, its hackathon
+* None, its hackathon
+* None, its hackathon
+* None, its hackathon
+
+
+If the answers is "Suggest" or "Need suggestion", provide options.
+If you have any additional Questions & Clarifications and/or Architecture Consideration Questions, 
+please ask

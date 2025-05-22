@@ -1,0 +1,5 @@
+Use ONLY files from /docs_new folder
+Apply instructions from the prompts/part1.2-wow-feature.md file
+Take event-details from input/event-details.txt, 
+Take app-overview from input/app-overview.txt.
+Use ONLY files mentioned above.

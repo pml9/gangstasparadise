@@ -1,0 +1,6 @@
+Use ONLY files from /docs_new folder
+Apply instructions from the prompts/part3.1-technical-specification-critique.md file
+Take event-details from input/event-details.txt, 
+Take app-overview from input/app-overview.txt,
+Take technical-specification from output/technical-specification.md 
+Use ONLY files mentioned above.

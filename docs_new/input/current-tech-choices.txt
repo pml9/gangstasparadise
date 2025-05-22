@@ -1,0 +1,13 @@
+
+## Technology Stack
+
+- TypeScript
+- Next.js v15 App Router
+- React.js
+- shadcn/ui
+- Tailwind CSS
+- PostgreSQL
+- Railway for deployment
+
+## Integrations
+

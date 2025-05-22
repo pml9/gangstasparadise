@@ -1,0 +1,32 @@
+WHAT:
+A platform for users to both teach and learn skills across generations—connecting younger “digital natives” with older “traditional knowledge” holders.
+
+WHO:
+
+Young Learners (16–29)
+
+Established Adults (30–49)
+
+Experienced Guides (50–64)
+
+Wisdom Keepers (65+)
+
+WHY:
+
+Preserve cultural and practical knowledge
+
+Reduce isolation for seniors
+
+Empower mutual learning (life skills ↔ tech skills)
+
+Break down age stereotypes
+
+HOW:
+
+Onboarding & Profiles: Select age group; list teach/learn skills; set format (in‑person/virtual), availability, motivation.
+
+Discovery & Matching: Search/filter skill cards; algorithmic recommendations; proximity and rating filters.
+
+Scheduling & Sessions: Calendar integration; session format, duration, materials via a step‑by‑step wizard.
+
+Feedback & Analytics: Intergenerational‑aware ratings; dashboards for personal impact (hours, skills) and community milestones.

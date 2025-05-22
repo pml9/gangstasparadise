@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 36 33% 97%;
+  --foreground: 20 14% 20%;
+  --card: 36 100% 98%;
+  --card-foreground: 20 14% 20%;
+  --popover: 36 100% 98%;
+  --popover-foreground: 20 14% 20%;
+  --primary: 33 75% 59%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 35 100% 94%;
+  --secondary-foreground: 33 75% 59%;
+  --muted: 35 10% 63%;
+  --muted-foreground: 35 10% 63%;
+  --accent: 33 75% 59%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 50% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 35 20% 88%;
+  --input: 35 20% 88%;
+  --ring: 33 75% 59%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 25 12% 10%;
+  --foreground: 35 15% 94%;
+  --card: 25 10% 15%;
+  --card-foreground: 35 15% 94%;
+  --popover: 25 10% 15%;
+  --popover-foreground: 35 15% 94%;
+  --primary: 35 80% 68%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 25 10% 20%;
+  --secondary-foreground: 35 15% 94%;
+  --muted: 25 10% 25%;
+  --muted-foreground: 35 10% 75%;
+  --accent: 35 80% 68%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 50% 40%;
+  --destructive-foreground: 35 15% 94%;
+  --border: 25 10% 25%;
+  --input: 25 10% 25%;
+  --ring: 35 80% 68%;
+}
+
+body {
+  @apply bg-background-light text-dark-brown font-sans;
+}
+
+@layer base {
+  h1 {
+    @apply text-h1 font-bold;
+  }
+  h2 {
+    @apply text-h2 font-bold;
+  }
+  h3 {
+    @apply text-h3 font-semibold;
+  }
+  h4 {
+    @apply text-h4 font-semibold;
+  }
+  p {
+    @apply text-body;
+  }
+}
+
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-warm-gold text-white px-4 py-3 rounded-lg font-medium text-button-text hover:bg-secondary-gold-light transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-warm-gold focus:ring-offset-2 disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-primary-warm-gold text-primary-warm-gold bg-transparent px-4 py-3 rounded-lg font-medium text-button-text hover:bg-secondary-gold-pale transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-warm-gold focus:ring-offset-2 disabled:opacity-60;
+  }
+
+  .btn-text {
+    @apply text-primary-warm-gold bg-transparent px-4 py-2 rounded-lg font-medium text-button-text hover:bg-secondary-gold-pale transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-warm-gold focus:ring-offset-2 disabled:opacity-60;
+  }
+
+  .card {
+    @apply bg-background-ivory rounded-xl shadow-card p-4 hover:shadow-card-hover transition-shadow duration-200;
+  }
+
+  .input-field {
+    @apply h-14 rounded-lg border border-neutral-taupe bg-background-ivory text-dark-brown px-4 focus:outline-none focus:border-primary-warm-gold focus:border-2 placeholder:text-neutral-taupe;
+  }
+
+  .badge-young {
+    @apply bg-accent-sage text-white;
+  }
+
+  .badge-established {
+    @apply bg-accent-teal text-white;
+  }
+
+  .badge-experienced {
+    @apply bg-accent-terracotta text-white;
+  }
+
+  .badge-wisdom {
+    @apply bg-accent-mauve text-white;
+  }
+
+  .overline {
+    @apply text-overline uppercase;
+  }
+}

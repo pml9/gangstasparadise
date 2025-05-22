@@ -1,0 +1,1 @@
+write unit tests to all comps with vitest, rtl (already installed) write ONLY 1 test case "renders the component" for each comp and then run ONLY test that was added to check if it works. skip already existing, skip src/components/ui

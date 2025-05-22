@@ -1,0 +1,8 @@
+Use ONLY files from /docs_new folder
+Apply instructions from the prompts/part1-architect.md file, by creating output/overall-structure.md file 
+with a basic structure and then add content in sections step by step. 
+Take event-details from input/event-details.txt, 
+Take app-overview from input/app-overview.txt, 
+take what-who-why-how from input/what-who-why-how.txt,
+take current-tech-choices from input/current-tech-choices.txt
+Use ONLY files mentioned above.
