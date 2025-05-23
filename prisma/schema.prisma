@@ -1,1 +1,131 @@
- 
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Device {
+  id              Int       @id @default(autoincrement())
+  serial_number   String    @unique @db.VarChar(255)
+  type            String    @db.VarChar(100)
+  model           String?   @db.VarChar(255)
+  location        String?   @db.VarChar(255)
+  purchase_date   DateTime? @db.Date
+  warranty_expiry DateTime? @db.Date
+  status          String?   @default("active") @db.VarChar(50)
+  createdAt       DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt       DateTime? @default(now()) @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@index([status], map: "idx_devices_status")
+  @@index([type], map: "idx_devices_type")
+  @@map("devices")
+}
+
+model asset_bookings {
+  id         Int       @id @default(autoincrement())
+  user_id    Int
+  asset_id   Int
+  start_date DateTime  @db.Date
+  end_date   DateTime  @db.Date
+  status     String?   @default("active") @db.VarChar(50)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  assets     assets    @relation(fields: [asset_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model assets {
+  id             Int              @id @default(autoincrement())
+  name           String           @db.VarChar(255)
+  type           String           @db.VarChar(100)
+  available      Boolean?         @default(true)
+  created_at     DateTime?        @default(now()) @db.Timestamp(6)
+  asset_bookings asset_bookings[]
+}
+
+model expense_reports {
+  id               Int       @id @default(autoincrement())
+  user_id          Int
+  amount           Decimal   @db.Decimal(10, 2)
+  currency         String?   @default("USD") @db.VarChar(3)
+  category         String    @db.VarChar(100)
+  description      String?
+  receipt_url      String?   @db.VarChar(500)
+  ocr_data         Json?
+  status           String?   @default("pending") @db.VarChar(50)
+  manager_comments String?
+  created_at       DateTime? @default(now()) @db.Timestamp(6)
+  updated_at       DateTime? @default(now()) @db.Timestamp(6)
+  users            users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([status], map: "idx_expense_reports_status")
+  @@index([user_id], map: "idx_expense_reports_user_id")
+}
+
+model maintenance_issues {
+  id                                          Int       @id @default(autoincrement())
+  user_id                                     Int
+  issue_type                                  String    @db.VarChar(100)
+  description                                 String
+  device_serial_number                        String?   @db.VarChar(255)
+  status                                      String?   @default("new") @db.VarChar(50)
+  assigned_to                                 Int?
+  priority                                    String?   @default("medium") @db.VarChar(20)
+  comments                                    String?
+  created_at                                  DateTime? @default(now()) @db.Timestamp(6)
+  updated_at                                  DateTime? @default(now()) @db.Timestamp(6)
+  users_maintenance_issues_assigned_toTousers users?    @relation("maintenance_issues_assigned_toTousers", fields: [assigned_to], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users_maintenance_issues_user_idTousers     users     @relation("maintenance_issues_user_idTousers", fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([status], map: "idx_maintenance_issues_status")
+  @@index([user_id], map: "idx_maintenance_issues_user_id")
+}
+
+model sick_leave_requests {
+  id               Int       @id @default(autoincrement())
+  user_id          Int
+  start_date       DateTime  @db.Date
+  end_date         DateTime  @db.Date
+  status           String?   @default("pending") @db.VarChar(50)
+  manager_comments String?
+  created_at       DateTime? @default(now()) @db.Timestamp(6)
+  updated_at       DateTime? @default(now()) @db.Timestamp(6)
+  users            users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([status], map: "idx_sick_leave_status")
+  @@index([user_id], map: "idx_sick_leave_user_id")
+}
+
+model travel_requests {
+  id             Int       @id @default(autoincrement())
+  user_id        Int
+  destination    String    @db.VarChar(255)
+  departure_date DateTime  @db.Date
+  return_date    DateTime  @db.Date
+  purpose        String?
+  status         String?   @default("draft") @db.VarChar(50)
+  estimated_cost Decimal?  @db.Decimal(10, 2)
+  created_at     DateTime? @default(now()) @db.Timestamp(6)
+  updated_at     DateTime? @default(now()) @db.Timestamp(6)
+  users          users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  id                                                       Int                   @id @default(autoincrement())
+  email                                                    String                @unique @db.VarChar(255)
+  name                                                     String                @db.VarChar(255)
+  role                                                     String?               @default("employee") @db.VarChar(50)
+  manager_id                                               Int?
+  created_at                                               DateTime?             @default(now()) @db.Timestamp(6)
+  updated_at                                               DateTime?             @default(now()) @db.Timestamp(6)
+  asset_bookings                                           asset_bookings[]
+  expense_reports                                          expense_reports[]
+  maintenance_issues_maintenance_issues_assigned_toTousers maintenance_issues[]  @relation("maintenance_issues_assigned_toTousers")
+  maintenance_issues_maintenance_issues_user_idTousers     maintenance_issues[]  @relation("maintenance_issues_user_idTousers")
+  sick_leave_requests                                      sick_leave_requests[]
+  travel_requests                                          travel_requests[]
+  users                                                    users?                @relation("usersTousers", fields: [manager_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  other_users                                              users[]               @relation("usersTousers")
+}
