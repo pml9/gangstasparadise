@@ -5,6 +5,10 @@ import type {
 } from '@/types/sick-leave';
 import { getSupabaseServerClient } from '@/utils/supabase/server-helpers';
 
+// N8N webhook URL for sick leave approval process
+const N8N_WEBHOOK_URL =
+  'https://hack9.app.n8n.cloud/webhook-test/b67f847e-562d-4b28-9c1b-b9d5a38a1012';
+
 export async function GET(request: NextRequest) {
   try {
     // Add delay to see loading state
@@ -117,6 +121,46 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to create sick leave request' },
         { status: 500 }
       );
+    }
+
+    // Calculate duration in days
+    const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+    // Send webhook to n8n for approval workflow
+    try {
+      const requestData = {
+        requestId: newRequest.id,
+        employeeId: newRequest.user_id,
+        employeeName: newRequest.user.name,
+        employeeEmail: newRequest.user.email,
+        startDate: newRequest.start_date,
+        endDate: newRequest.end_date,
+        duration: diffDays,
+        status: newRequest.status,
+        createdAt: newRequest.created_at,
+        apiEndpoint: `${request.headers.get('host')}/api/sick-leave`,
+      };
+
+      const webhookResponse = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!webhookResponse.ok) {
+        console.warn(
+          'Failed to send data to n8n webhook, but request was created:',
+          await webhookResponse.text()
+        );
+      } else {
+        console.log('Successfully sent sick leave request to n8n workflow');
+      }
+    } catch (webhookError) {
+      // Log but don't fail the request if webhook fails
+      console.error('Error sending to n8n webhook:', webhookError);
     }
 
     return NextResponse.json(newRequest as SickLeaveRequest, { status: 201 });
