@@ -1,0 +1,13 @@
+Welcome to our comprehensive enterprise web application, designed to streamline everyday workplace processes and enhance employee experience across multiple dimensions. This powerful platform brings together six essential features that address common organizational needs—from personal wellbeing to resource management—all within a unified, intuitive interface.
+ 
+In today's fast-paced work environment, employees need efficient digital tools that reduce administrative friction and allow them to focus on meaningful work. Our application responds to this need by digitalizing and optimizing processes that traditionally consume valuable time and create unnecessary stress. Whether managing personal time off, arranging business travel, or reporting facility issues, users will find streamlined workflows that respect their time while maintaining necessary organizational controls.
+ 
+The following overview explores each feature in detail, highlighting key functionalities, user benefits, and organizational advantages. As you'll discover, these features work both independently and in concert, creating a cohesive digital ecosystem that supports productivity, wellbeing, and operational excellence throughout the organization.
+
+High level features:
+Sick Leave – Feeling under the weather? Submit your sick leave with just a few clicks and get some rest!
+Education and Social Activities – Want to learn something new, join a team-building event, or even organize one?
+Corporate Travel – Got a meeting in another city? Arrange your flights and book your business trip.
+Maintenance Issues – Got a flickering light or a broken pipe? Report it and let the fixers do their magic.
+Internal Asset Booking – Need a company car, projector, or those awesome portable speakers? Book it all here!
+Expense Report – Bought something for work? Snap the receipt, upload it, and get reimbursed in no time.

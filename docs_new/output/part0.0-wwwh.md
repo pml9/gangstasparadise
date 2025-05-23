@@ -1,3 +1,5 @@
+# Enterprise Workplace Platform - WWWH
+
 ## **WHAT** 
 A comprehensive enterprise web application that streamlines six essential workplace processes (sick leave, education/social activities, corporate travel, maintenance issues, asset booking, and expense reporting) into one unified, intuitive platform.
 
