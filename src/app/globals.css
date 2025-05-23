@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 228 78% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 39%;
+    --muted: 0 0% 39%;
+    --muted-foreground: 0 0% 39%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 354 70% 54%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 83%;
+    --input: 0 0% 83%;
+    --ring: 228 78% 45%;
+    --radius: 0.5rem;
+    
+    /* Custom brand colors from design spec */
+    --primary-brand: 228 78% 45%; /* #1C43C9 */
+    --primary-dark: 229 81% 41%; /* #1425BA */
+    --success: 145 100% 38%; /* #00C246 */
+    --warning: 32 97% 51%; /* #F79009 */
+    --error: 354 70% 54%; /* #D2373F */
+    --wow-factor-start: 32 97% 51%; /* #FF7009 */
+    --wow-factor-end: 228 78% 45%; /* #1C43C9 */
+    
+    /* Extended palette */
+    --background-subtle: 0 0% 98%; /* #FAFAFA */
+    --background-muted: 0 0% 95%; /* #F2F2F2 */
+    --background-elevated: 0 0% 90%; /* #E6E6E6 */
+    
+    --text-primary: 0 0% 0%; /* #000000 */
+    --text-secondary: 0 0% 39%; /* #636363 */
+    --text-muted: 0 0% 61%; /* #9B9B9B */
+    --text-disabled: 0 0% 73%; /* #BBBBBB */
+    
+    --border-light: 0 0% 83%; /* #D4D4D4 */
+    --border-default: 0 0% 61%; /* #9B9B9B */
+    --border-strong: 0 0% 39%; /* #636363 */
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 228 78% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 354 70% 54%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 228 78% 45%;
+    
+    /* Custom brand colors remain consistent in dark mode */
+    --primary-brand: 228 78% 55%; /* Slightly lighter for dark mode */
+    --primary-dark: 229 81% 51%;
+    --success: 145 100% 45%;
+    --warning: 32 97% 58%;
+    --error: 354 70% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  /* Typography utilities matching design spec */
+  .text-h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  .text-h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+  .text-h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  .text-h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  .text-body-large {
+    @apply text-lg text-muted-foreground;
+  }
+  .text-body {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+  .text-body-small {
+    @apply text-sm text-muted-foreground;
+  }
+  .text-caption {
+    @apply text-xs text-muted-foreground;
+  }
+  .text-button-text {
+    @apply text-sm font-medium;
+  }
+  .text-link-text {
+    @apply text-sm font-medium underline underline-offset-4;
+  }
+  .text-overline {
+    @apply text-xs font-medium uppercase tracking-wide;
+  }
+  
+  /* Brand color utilities */
+  .bg-primary-brand {
+    background-color: hsl(var(--primary-brand));
+  }
+  .text-primary-brand {
+    color: hsl(var(--primary-brand));
+  }
+  .border-primary-brand {
+    border-color: hsl(var(--primary-brand));
+  }
+  
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+  .text-success {
+    color: hsl(var(--success));
+  }
+  .border-success {
+    border-color: hsl(var(--success));
+  }
+  
+  .bg-warning {
+    background-color: hsl(var(--warning));
+  }
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+  .border-warning {
+    border-color: hsl(var(--warning));
+  }
+  
+  .bg-error {
+    background-color: hsl(var(--error));
+  }
+  .text-error {
+    color: hsl(var(--error));
+  }
+  .border-error {
+    border-color: hsl(var(--error));
+  }
+  
+  /* Wow factor gradient */
+  .bg-wow-factor {
+    background: linear-gradient(135deg, hsl(var(--wow-factor-start)) 0%, hsl(var(--wow-factor-end)) 100%);
+  }
+  
+  /* Status card variants */
+  .card-approved {
+    @apply border-l-4 border-success;
+  }
+  .card-pending {
+    @apply border-l-4 border-warning;
+  }
+  .card-rejected {
+    @apply border-l-4 border-error;
+  }
+  
+  /* Demo-specific utilities */
+  .tier-1-indicator {
+    background-color: #E8ECFA;
+  }
+  .tier-2-indicator {
+    background-color: #FE8AEA;
+  }
+  
+  /* Animation utilities */
+  .transition-demo {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  .hover-lift {
+    @apply hover:scale-105 transition-transform duration-200;
+  }
+  .fade-in {
+    animation: fade-in 300ms ease-in-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+} 

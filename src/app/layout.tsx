@@ -1,16 +1,9 @@
 import type React from "react"
-import { Inter } from "next/font/google"
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-})
+import "@/app/globals.css"
 
 export const metadata = {
-  title: "gangstasparadise",
-  description: "gangstasparadise",
+  title: "OpenDesk - Workplace Management Platform",
+  description: "Streamline your workplace processes with OpenDesk",
 }
 
 export default function RootLayout({
@@ -20,8 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
-        <main className="min-h-screen">{children}</main>
+      <body>
+          {children}
       </body>
     </html>
   )

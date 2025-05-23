@@ -98,12 +98,13 @@ Allow employees to quickly report and track facility-related issues while provid
 **Manual Issue Reporting Form**
 * Users access a clean, intuitive form to report problems (device issue, reboot issue, etc.)
 * Required fields:
+- device type: show devices already assigned to user
   - Issue Type (dropdown)
   - Short Description (text field)
 * Upon submission, the issue is added to the tracking system
 
 **Status Tracking**
-* Submitted issues appear in the "My Requests" section for the reporting user
+* Submitted issues appear in the "My Requests" table for the reporting user
 * Statuses follow a clear workflow: New → Assigned → In Progress → Resolved
 * Users can view status changes and facility team comments
 
