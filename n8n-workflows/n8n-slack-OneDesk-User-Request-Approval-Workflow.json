@@ -1,0 +1,220 @@
+{
+  "name": "Hack9",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "d7299fe7-9806-4a50-969f-5f84b7849a84",
+      "name": "When chat message received",
+      "webhookId": "aa941a32-0723-44a3-8677-06e16ae04ed9"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Recognize the user input and summarize it. Send it from a third person like - User requested a vacation."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        440,
+        0
+      ],
+      "id": "6f05874c-240f-45c8-bfff-d0133bdef15b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAzureOpenAi",
+      "typeVersion": 1,
+      "position": [
+        380,
+        220
+      ],
+      "id": "bdd5df72-4e99-4c0b-a6d0-ec2a8ae7f02b",
+      "name": "Azure OpenAI Chat Model",
+      "credentials": {
+        "azureOpenAiApi": {
+          "id": "UjAMPpenlp6A6UJp",
+          "name": "Azure Open AI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08TSUZN1R8",
+          "mode": "list",
+          "cachedResultName": "user-requests"
+        },
+        "message": "=New user request: {{ $json.output }}",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        800,
+        0
+      ],
+      "id": "6e9dfaa8-d30d-4e01-9200-1bffd8e28c46",
+      "name": "Slack",
+      "webhookId": "e4ae4283-5c81-46b1-9fdc-47f4a99d03c3",
+      "credentials": {
+        "slackApi": {
+          "id": "cNSD3JM5eF5vwdrI",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "52fe9eb3-085e-4924-a02d-de0efd8eabd7",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1020,
+        0
+      ],
+      "id": "0b027da5-2656-4cc3-8508-c32de46857e4",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C08U3D0EEPK",
+          "mode": "list",
+          "cachedResultName": "approved-requests"
+        },
+        "text": "=The user request #{{ $('When chat message received').item.json.sessionId }} has been approved.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        1240,
+        -100
+      ],
+      "id": "9afcb26e-4ce6-4fa2-84c5-f258f91fbc62",
+      "name": "Slack1",
+      "webhookId": "c932a4fa-4a28-436c-b87a-03fe6ddee9ed",
+      "credentials": {
+        "slackApi": {
+          "id": "cNSD3JM5eF5vwdrI",
+          "name": "Slack account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Azure OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Slack": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8669f4c4-f811-4ea1-95e9-1db7534ae8ea",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "282bd6099d6040d79e51048eb13593c1b7bf5e43f4c208140a39e74020ec4836"
+  },
+  "id": "ejumgy8m5W8N4VZE",
+  "tags": []
+}
