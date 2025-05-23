@@ -7,7 +7,7 @@ import { getSupabaseServerClient } from '@/utils/supabase/server-helpers';
 
 // N8N webhook URL for sick leave approval process
 const N8N_WEBHOOK_URL =
-  'https://hack9.app.n8n.cloud/webhook-test/b67f847e-562d-4b28-9c1b-b9d5a38a1012';
+  'https://hack9.app.n8n.cloud/webhook/b67f847e-562d-4b28-9c1b-b9d5a38a1012';
 
 export async function GET(request: NextRequest) {
   try {
