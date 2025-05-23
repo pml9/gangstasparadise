@@ -121,9 +121,28 @@ Allow employees to quickly report and track facility-related issues while provid
 
 ### Feature D: Corporate Travel Management
 _Complex feature showing integration potential with expense workflows_
+
+#### Travel Request Form
+
+**Goal:**
+Enable employees to submit a structured request for a business trip, including travel preferences.
+
+**Form Fields (Mandatory unless noted):**
+
+* Title – A short name for the business trip.
+* Description Section:
+  * Destination (City, Country)
+  * Customer / Project Name
+  * Luggage Necessity (Yes / No)
+  * Preferred Travel Time (e.g., morning, afternoon, or exact datetime)
+* Business Trip Dates – Select start and end date via a calendar UI.
+* Approving Manager – Select from a dropdown of eligible managers.
+
+**Implementation:**
+
 * AI-generated travel booking UI mockups (working interface)
 * Basic itinerary creation with expense pre-population
-* **Implementation:** 60-70% complete for demo points (AI-accelerated prototyping)
+* **Implementation Status:** 60-70% complete for demo points (AI-accelerated prototyping)
 
 ### Feature E: AI-Powered Workplace Assistant
 _The innovative "wow factor" feature that distinguishes from traditional HR suites_

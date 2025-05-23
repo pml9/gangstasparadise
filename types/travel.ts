@@ -9,8 +9,8 @@ export interface TravelRequest {
   destination: string
   departure_date: string // ISO date string
   return_date: string // ISO date string
-  purpose?: string | null
-  status: "draft" | "pending" | "approved" | "rejected" | "completed"
+  purpose: string | null
+  status: TravelStatus
   estimated_cost?: number | null
   actual_cost?: number | null
   manager_comments?: string | null
@@ -28,7 +28,7 @@ export interface CreateTravelRequest {
 }
 
 export interface UpdateTravelStatusRequest {
-  status: "approved" | "rejected" | "completed"
+  status: TravelStatus
   manager_comments?: string
   actual_cost?: number
 }
