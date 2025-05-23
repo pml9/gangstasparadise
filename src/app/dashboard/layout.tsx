@@ -52,6 +52,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 Expenses
               </Link>
               <Link
+                href="/dashboard/travel"
+                className={`px-2 py-4 font-medium ${
+                  pathname === "/dashboard/travel"
+                    ? "text-blue-700 border-b-2 border-blue-700"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Travel
+              </Link>
+              <Link
                 href="/dashboard/maintenance"
                 className={`px-2 py-4 font-medium ${
                   pathname === "/dashboard/maintenance"
