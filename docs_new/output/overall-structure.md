@@ -30,21 +30,91 @@ A clear, step-by-step description of the **tightly-timed demo flow** (4-5 steps 
 
 ### Feature A: Sick Leave Management
 _Core HR process that every enterprise needs with streamlined approval workflows_
-* Requirement 1: Employee request submission with calendar integration (Complexity: Medium) - AI-accelerated
-* Requirement 2: Manager approval dashboard with notification system (Complexity: Low) - Rapid implementation
-* **Implementation:** Full working feature with AI code generation
+Employee enters sick leave Management page, where they can see calendar and can choose range or day in the future to select desire sick leave period
+
+* Requirement 1: Employee sick leave selection with calendar interface for future date/range selection (Complexity: High) - AI-accelerated
+* Requirement 2: Manager email notification system with Accept/Decline buttons and status synchronization via n8n automation flow (Complexity: Medium) - Rapid implementation
+* **Implementation:** Full working feature with AI code generation - employees see real-time status updates on Management page, managers receive complete request data (user name, email, dates) via email through n8n workflow automation, and status changes trigger automatic email notifications to employees using n8n automation flow
 
 ### Feature B: Expense Report Management 
 _High-value feature with receipt scanning and auto-categorization_
-* Requirement 1: Receipt upload with OCR text extraction (Complexity: Low) - v0 for UI
-* Requirement 2: Auto-categorization and approval workflow (Complexity: Low) - Cursor AI for backend
-* **Implementation:** Full working feature
 
-### Feature C: Internal Asset Booking
-_Resource management feature that showcases real-time availability_
-* AI-generated booking calendar components and conflict resolution logic
-* Real-time asset availability tracking with automated notifications
-* **Implementation:** Full working feature (AI-enabled ambitious scope)
+**Overview:**
+Enables employees to submit, categorize, and request approval for expenses incurred during work-related activities. Leverages OCR for receipt scanning and integrates with a manager approval workflow.
+
+**Core Functionality:**
+
+**Receipt Upload & OCR Processing**
+* Implement a feature that allows a logged-in user to upload a photo of a receipt
+* Once the image is uploaded:
+  - Use OCR (Optical Character Recognition) to extract text from the image
+  - Detect and extract the amount spent (in currency)
+  - Use the receipt contents to propose a category from a predefined list
+  - Show the extracted amount and proposed category to the user for review
+  - Allow the user to correct the amount or choose a different category before submission
+
+**Category Management**
+* Displays the proposed category from the OCR logic
+* Lets the user accept the suggested category or select another from the list
+* If the user selects "Other", prompt them to provide a custom description
+* **Expense Categories (predefined list):**
+  - Travel
+  - Accommodation
+  - Meal / Dinner with customers
+  - Team building expenses
+  - Office supplies
+  - Software & subscriptions
+  - Training & education
+  - Miscellaneous / Other
+
+**Amount Verification**
+* Display the recognized amount and allow the user to confirm or correct it
+* Add a "Submit Expense Report" button that stores the reviewed data and initiates the approval process
+
+**Approval Workflow**
+* When an expense report is submitted, send a notification email to the user's manager with expense details (amount, category, receipt image)
+* The manager can:
+  - Approve the expense (mark as approved in the database)
+  - Reject the expense and provide a rejection reason (mark as rejected, store the reason)
+* Notify the user of the manager's decision by email and show the status in the expense report UI
+
+**Technical Requirements**
+* Ensure the system handles multiple currencies
+* Use a background job or async processing for OCR to keep UI responsive
+* Store all uploaded receipts securely and make them accessible via the report
+
+* Requirement 1: Receipt upload with OCR text extraction, amount detection, and category suggestion system (Complexity: High) - v0 for UI
+* Requirement 2: Manager approval workflow with email notifications and status tracking integration (Complexity: High) - Cursor AI for backend
+* **Implementation:** Full working feature - employees upload receipt photos for automatic text extraction and smart categorization, managers receive detailed approval emails with receipt images, and the system provides real-time status updates with secure receipt storage and multi-currency support
+
+### Feature C: Maintenance Issues Management
+_Facility management feature that showcases issue reporting and tracking workflows_
+
+**Purpose:**
+Allow employees to quickly report and track facility-related issues while providing facility teams with a streamlined interface to manage, assign, and resolve maintenance requests efficiently.
+
+**Functionality Overview:**
+
+**Manual Issue Reporting Form**
+* Users access a clean, intuitive form to report problems (device issue, reboot issue, etc.)
+* Required fields:
+  - Issue Type (dropdown)
+  - Short Description (text field)
+* Upon submission, the issue is added to the tracking system
+
+**Status Tracking**
+* Submitted issues appear in the "My Requests" section for the reporting user
+* Statuses follow a clear workflow: New → Assigned → In Progress → Resolved
+* Users can view status changes and facility team comments
+
+**Notifications**
+* Email sent when:
+  - A ticket is assigned
+  - Status is updated
+
+* Requirement 1: Issue reporting form with dropdown categorization and tracking system integration (Complexity: Medium) - AI-accelerated
+* Requirement 2: Status workflow management with automated email notifications for assignment and updates (Complexity: Medium) - Rapid implementation
+* **Implementation:** Full working feature (AI-enabled ambitious scope) - employees submit issues through intuitive form, facility teams manage requests with clear status progression, and automated notifications keep all stakeholders informed throughout the resolution process
 
 **Tier 2: Implement Partially (2-3 features with AI assistance for Feature Coverage points)**
 
@@ -92,7 +162,7 @@ Build 50-75% more features with same effort by leveraging AI for enterprise work
 **Strategic Testing Approach (for 10% Test Coverage points):**
 - Focus ONLY on backend API tests for core business workflows (AI can generate these effectively)
 - Skip frontend component tests (too time-consuming even with AI)
-- Target 2-3 core business logic functions (approval workflows, booking conflicts, expense calculations)
+- Target 2-3 core business logic functions (approval workflows, maintenance priority assignment, expense calculations)
 - Use Jest for API routes, avoid complex React testing scenarios
 
 ---
@@ -122,10 +192,10 @@ graph TB
     subgraph "Core Features"
         SickLeave[Sick Leave Management]
         Expenses[Expense Reporting]
-        AssetBooking[Asset Booking]
+        Maintenance[Maintenance Issues]
         Travel[Travel Management]
         Education[Education & Social]
-        Maintenance[Maintenance Issues]
+        AssetBooking[Asset Booking]
     end
     
     UI --> Auth
@@ -140,10 +210,10 @@ graph TB
     
     SickLeave --> API
     Expenses --> API
-    AssetBooking --> API
+    Maintenance --> API
     Travel --> API
     Education --> API
-    Maintenance --> API
+    AssetBooking --> API
     
     API --> DB
     API --> FileStorage
@@ -159,7 +229,7 @@ graph TB
 ## Risk Assessment & Mitigation
 
 ### High Risk (could kill the project)
-* **Database schema complexity for 6 features** → Start with 3 core tables (users, requests, assets), expand incrementally with AI-generated migrations
+* **Database schema complexity for 6 features** → Start with 3 core tables (users, requests, maintenance_tickets), expand incrementally with AI-generated migrations
 * **Cross-feature workflow integration complexity** → Build features independently first, add integration in final hour with pre-planned API contracts
 
 ### Medium Risk (could delay or reduce scope)  
@@ -184,7 +254,7 @@ graph TB
 * Hour 0.5: Core features prioritized, AI tools assigned, workplace assistant AI strategy defined
 * Hour 2: Sick leave + expense features working (AI acceleration), AI assistant concept validated
 * Hour 4.5: 3 Tier 1 features complete (AI-enhanced), cross-feature integrations mapped
-* Hour 5.5: Asset booking + travel features prototyped with AI, AI assistant partially integrated
+* Hour 5.5: Maintenance + travel features prototyped with AI, AI assistant partially integrated
 * Hour 6: All core workflows integrated, AI-assisted enterprise testing complete
 * Hour 6.25: Strategic API tests complete, AI-generated enterprise documentation ready
 * Hour 6.5: AI-polished enterprise UI/UX, 2-minute sales demo perfected
@@ -204,7 +274,7 @@ graph TB
 
 **Test Coverage (10%):**
 - **Strategic approach:** Focus on backend API tests for core business workflows
-- AI-generated unit tests for approval workflows, booking conflicts, expense calculations
+- AI-generated unit tests for approval workflows, maintenance priority assignment, expense calculations
 - Basic coverage reporting setup with enterprise-grade metrics
 - **Skip frontend component tests** (too time-consuming even with AI)
 - **Time needed:** 30-40 minutes (realistic AI-assisted approach)
@@ -218,8 +288,8 @@ graph TB
 ### Core Points (40% total - must execute well)
 **Feature Coverage (20%):**
 - Plan 6 enterprise features in project board
-- Implement 3 fully working (sick leave, expenses, asset booking)
-- Show 2-3 partially (travel, AI assistant, education/maintenance)
+- Implement 3 fully working (sick leave, expenses, maintenance)
+- Show 2-3 partially (travel, AI assistant, education/asset booking)
 
 **Functionality (20%):**
 - Zero major bugs in core approval workflows
