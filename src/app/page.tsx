@@ -1,6 +1,14 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, Clock, Users, Shield, Zap, Lightbulb, LayoutGrid } from "lucide-react"
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import {
+  CheckCircle,
+  Clock,
+  Users,
+  Shield,
+  Zap,
+  Lightbulb,
+  LayoutGrid,
+} from 'lucide-react';
 
 export default function Home() {
   return (
@@ -16,10 +24,13 @@ export default function Home() {
       <section className="bg-blue-600 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <h2 className="text-4xl font-bold mb-4">One platform for all your workplace needs</h2>
+            <h2 className="text-4xl font-bold mb-4">
+              One platform for all your workplace needs
+            </h2>
             <p className="text-lg mb-8">
-              Welcome to our comprehensive enterprise web application, designed to streamline everyday workplace
-              processes and enhance employee experience across multiple dimensions.
+              Welcome to our comprehensive enterprise web application, designed
+              to streamline everyday workplace processes and enhance employee
+              experience across multiple dimensions.
             </p>
             <Link href="/dashboard">
               <Button variant="secondary" size="lg">
@@ -33,10 +44,13 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-2">Streamline Your Workplace Experience</h2>
+          <h2 className="text-2xl font-bold text-center mb-2">
+            Streamline Your Workplace Experience
+          </h2>
           <p className="text-center mb-12 max-w-3xl mx-auto">
-            Our powerful platform brings together six essential features that address common organizational needs—from
-            personal wellbeing to resource management—all within a unified, intuitive interface.
+            Our powerful platform brings together six essential features that
+            address common organizational needs—from personal wellbeing to
+            resource management—all within a unified, intuitive interface.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -47,8 +61,8 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">Sick Leave Management</h3>
               <p className="text-gray-600">
-                Simplify the leave request process by managing time off with an intuitive calendar interface and
-                automated approval workflows.
+                Simplify the leave request process by managing time off with an
+                intuitive calendar interface and automated approval workflows.
               </p>
             </div>
 
@@ -59,8 +73,8 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">Expense Reports</h3>
               <p className="text-gray-600">
-                Streamline expense reporting with OCR receipt scanning, automated categorization, and simplified
-                approval processes.
+                Streamline expense reporting with OCR receipt scanning,
+                automated categorization, and simplified approval processes.
               </p>
             </div>
 
@@ -71,8 +85,8 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">Maintenance Requests</h3>
               <p className="text-gray-600">
-                Efficiently track facility issues with priority indicators, photo documentation, and real-time status
-                updates.
+                Efficiently track facility issues with priority indicators,
+                photo documentation, and real-time status updates.
               </p>
             </div>
 
@@ -83,7 +97,8 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">Travel Booking</h3>
               <p className="text-gray-600">
-                Manage business travel with integrated booking tools, expense tracking, and automated policy compliance.
+                Manage business travel with integrated booking tools, expense
+                tracking, and automated policy compliance.
               </p>
             </div>
 
@@ -94,7 +109,8 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">Asset Management</h3>
               <p className="text-gray-600">
-                Track and manage company resources with inventory management, request workflow, and usage analytics.
+                Track and manage company resources with inventory management,
+                request workflow, and usage analytics.
               </p>
             </div>
 
@@ -105,8 +121,8 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">AI Assistant</h3>
               <p className="text-gray-600">
-                Get intelligent recommendations, predictive analytics, and automated workflows powered by advanced AI
-                technology.
+                Get intelligent recommendations, predictive analytics, and
+                automated workflows powered by advanced AI technology.
               </p>
             </div>
           </div>
@@ -118,32 +134,50 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/2">
-              <img src="/workplace-productivity-meeting.png" alt="Team collaboration" className="rounded-lg" />
+              <img
+                src="/workplace-productivity-meeting.png"
+                alt="Team collaboration"
+                className="rounded-lg"
+              />
             </div>
             <div className="md:w-1/2">
-              <h2 className="text-2xl font-bold mb-4">Enhance Workplace Productivity</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                Enhance Workplace Productivity
+              </h2>
               <p className="mb-6">
-                In today's fast-paced work environment, employees need efficient digital tools that reduce
-                administrative burdens and allow them to focus on meaningful work. Our application responds to this need
-                by digitalizing and optimizing processes that traditionally consume valuable time and create unnecessary
-                stress.
+                In today's fast-paced work environment, employees need efficient
+                digital tools that reduce administrative burdens and allow them
+                to focus on meaningful work. Our application responds to this
+                need by digitalizing and optimizing processes that traditionally
+                consume valuable time and create unnecessary stress.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span>Reduce administrative overhead with streamlined digital workflows</span>
+                  <span>
+                    Reduce administrative overhead with streamlined digital
+                    workflows
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span>Maintain organizational controls while improving user experience</span>
+                  <span>
+                    Maintain organizational controls while improving user
+                    experience
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span>Create a cohesive digital ecosystem that supports productivity</span>
+                  <span>
+                    Create a cohesive digital ecosystem that supports
+                    productivity
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span>Enhance employee wellbeing through simplified processes</span>
+                  <span>
+                    Enhance employee wellbeing through simplified processes
+                  </span>
                 </li>
               </ul>
             </div>
@@ -156,8 +190,10 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">One Unified Platform</h2>
           <p className="max-w-2xl mx-auto mb-12">
-            Whether managing personal time off, arranging business travel, or reporting facility issues, users will find
-            streamlined workflows that respect their time while maintaining necessary organizational controls.
+            Whether managing personal time off, arranging business travel, or
+            reporting facility issues, users will find streamlined workflows
+            that respect their time while maintaining necessary organizational
+            controls.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
@@ -204,10 +240,12 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Workplace?</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            Ready to Transform Your Workplace?
+          </h2>
           <p className="mb-8 max-w-2xl mx-auto">
-            Discover how our comprehensive enterprise application can streamline your organization's processes and
-            enhance employee experience.
+            Discover how our comprehensive enterprise application can streamline
+            your organization's processes and enhance employee experience.
           </p>
           <Link href="/dashboard">
             <Button size="lg">Enter</Button>
@@ -221,7 +259,9 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h3 className="text-blue-700 font-bold text-xl">OpenDesk</h3>
-              <p className="text-sm text-gray-500">Streamlining workplace processes</p>
+              <p className="text-sm text-gray-500">
+                Streamlining workplace processes
+              </p>
             </div>
             <div className="flex gap-4">
               <a href="#" className="text-gray-500 hover:text-gray-700">
@@ -300,9 +340,21 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="text-center text-sm text-gray-500 mt-8">© 2025 OpenDesk. All rights reserved.</div>
+          <div className="text-center text-sm text-gray-500 mt-8">
+            © 2025 OpenDesk. All rights reserved. 123
+          </div>
+          <div className="flex justify-center font-bold">
+            <a
+              href=" 
+            https://www.youtube.com/watch?v=8n1cWBNmPio"
+              target="_blank"
+              className="text-sm text-center text-red-500 mt-8"
+            >
+              GANgstas Paradise Music Video for vibe coding 👨‍💻
+            </a>
+          </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
